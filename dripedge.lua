@@ -1,5 +1,5 @@
 --dripedge
-minetest.register_node("mysheetmetal:dripedge", {
+core.register_node("mysheetmetal:dripedge", {
 	description = "Drip Edge",
 	drawtype = "nodebox",
 	tiles = {"mysheetmetal_white.png"},
@@ -15,7 +15,7 @@ minetest.register_node("mysheetmetal:dripedge", {
 	groups = {choppy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1},
 
 })
-minetest.register_node("mysheetmetal:dripedge_with_soffit", {
+core.register_node("mysheetmetal:dripedge_with_soffit", {
 	drawtype = "nodebox",
 	tiles = {"mysheetmetal_white.png"},
 	paramtype = "light",
@@ -37,6 +37,6 @@ minetest.register_node("mysheetmetal:dripedge_with_soffit", {
 	},
 	groups = {choppy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1},
 	on_punch = function(pos, node, puncher, pointed_thing)
-		minetest.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:soffit", param2=node.param2})
+		core.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:soffit", param2=node.param2})
 	end
 })

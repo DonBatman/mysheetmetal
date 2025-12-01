@@ -1,5 +1,5 @@
 --Eaves Trough
-minetest.register_node("mysheetmetal:eavestrough", {
+core.register_node("mysheetmetal:eavestrough", {
 	description = "Eavestrough",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -24,7 +24,7 @@ minetest.register_node("mysheetmetal:eavestrough", {
 })
 
 --Ocorner
-minetest.register_node("mysheetmetal:eavestrough_ocorner", {
+core.register_node("mysheetmetal:eavestrough_ocorner", {
 	description = "Eavestrough Outside Corner",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -49,7 +49,7 @@ minetest.register_node("mysheetmetal:eavestrough_ocorner", {
 })
 
 --Icorner
-minetest.register_node("mysheetmetal:eavestrough_icorner", {
+core.register_node("mysheetmetal:eavestrough_icorner", {
 	description = "Eavestrough Inside Corner",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -77,7 +77,7 @@ minetest.register_node("mysheetmetal:eavestrough_icorner", {
 })
 
 --Downspout
-minetest.register_node("mysheetmetal:downspout", {
+core.register_node("mysheetmetal:downspout", {
 	description = "Downspout",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -100,22 +100,22 @@ minetest.register_node("mysheetmetal:downspout", {
 		}
 	},
 	after_place_node = function(pos, placer)
-		local thing = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
+		local thing = core.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		 if thing ~= "air" then
-		    minetest.set_node(pos,{name = "mysheetmetal:downspout_bottom", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		    core.set_node(pos,{name = "mysheetmetal:downspout_bottom", param2=core.dir_to_facedir(placer:get_look_dir())})
 		end
 		 if thing == "mysheetmetal:downspout" then
-		    minetest.set_node(pos,{name = "mysheetmetal:downspout", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		    core.set_node(pos,{name = "mysheetmetal:downspout", param2=core.dir_to_facedir(placer:get_look_dir())})
 		end
 		 if thing == "mysheetmetal:downspout_bottom" then
-		    minetest.set_node(pos,{name = "mysheetmetal:downspout", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		    core.set_node(pos,{name = "mysheetmetal:downspout", param2=core.dir_to_facedir(placer:get_look_dir())})
 		end
 	end,
 
 })
 
 --Evaes Trough with Downspout
-minetest.register_node("mysheetmetal:eavestrough_downspout", {
+core.register_node("mysheetmetal:eavestrough_downspout", {
 	description = "Eavestrough with Downspout",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -162,7 +162,7 @@ minetest.register_node("mysheetmetal:eavestrough_downspout", {
 
 })
 --Bottom
-minetest.register_node("mysheetmetal:downspout_bottom", {
+core.register_node("mysheetmetal:downspout_bottom", {
 	description = "Downspout Bottom",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -197,13 +197,13 @@ minetest.register_node("mysheetmetal:downspout_bottom", {
 		}
 	},
 	on_punch = function(pos, node, puncher, pointed_thing)
-		minetest.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:downspout_bottomw", param2=node.param2})
+		core.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:downspout_bottomw", param2=node.param2})
 	end
 
 })
 
 --Bottom with Water
-minetest.register_node("mysheetmetal:downspout_bottomw", {
+core.register_node("mysheetmetal:downspout_bottomw", {
 	description = "Downspout Bottom with Water",
 	tiles = {
 		"mysheetmetal_water_top.png",
@@ -250,7 +250,7 @@ minetest.register_node("mysheetmetal:downspout_bottomw", {
 	},
 
 	on_punch = function(pos, node, puncher, pointed_thing)
-		minetest.set_node(pos,{name = "mysheetmetal:downspout_bottom", param2=node.param2})
+		core.set_node(pos,{name = "mysheetmetal:downspout_bottom", param2=node.param2})
 	end
 
 })
@@ -258,7 +258,7 @@ minetest.register_node("mysheetmetal:downspout_bottomw", {
 
 
 --Eavestrough with right cap
-minetest.register_node("mysheetmetal:eavestrough_rc", {
+core.register_node("mysheetmetal:eavestrough_rc", {
 	description = "Eavestrough rc",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",
@@ -283,7 +283,7 @@ minetest.register_node("mysheetmetal:eavestrough_rc", {
 
 })
 --Eavestrough with left cap
-minetest.register_node("mysheetmetal:eavestrough_lc", {
+core.register_node("mysheetmetal:eavestrough_lc", {
 	description = "Eavestrough lc",
 	tiles = {"mysheetmetal_white.png"},
 	drawtype = "nodebox",

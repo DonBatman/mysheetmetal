@@ -1,4 +1,4 @@
-minetest.register_node("mysheetmetal:soffit", {
+core.register_node("mysheetmetal:soffit", {
 	description = "Soffit",
 	tiles = {
 		"mysheetmetal_white.png",
@@ -30,13 +30,13 @@ minetest.register_node("mysheetmetal:soffit", {
 			{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}, 
 		}
 	},
-	on_place = minetest.rotate_node,
+	on_place = core.rotate_node,
 		on_punch = function(pos, node, puncher, pointed_thing)
-		minetest.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:dripedge_with_soffit", param2=node.param2})
+		core.set_node({x = pos.x, y = pos.y, z = pos.z},{name = "mysheetmetal:dripedge_with_soffit", param2=node.param2})
 	end
 })
 
-minetest.register_node("mysheetmetal:soffit_corner", {
+core.register_node("mysheetmetal:soffit_corner", {
 	description = "Soffit Corner",
 	tiles = {
 		"mysheetmetal_white.png",
@@ -68,11 +68,11 @@ minetest.register_node("mysheetmetal:soffit_corner", {
 			{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}, 
 		}
 	},
-	on_place = minetest.rotate_node,
+	on_place = core.rotate_node,
 })
 
 
-minetest.register_node("mysheetmetal:soffit_cap", {
+core.register_node("mysheetmetal:soffit_cap", {
 	description = "Soffit Cap Narrow",
 	tiles = {
 		"mysheetmetal_white.png^[transformR90",
@@ -95,7 +95,7 @@ minetest.register_node("mysheetmetal:soffit_cap", {
 	},
 })
 
-minetest.register_node("mysheetmetal:soffit_cap_icorner", {
+core.register_node("mysheetmetal:soffit_cap_icorner", {
 	description = "Soffit Cap Narrow Inside Corner",
 	tiles = {
 		"mysheetmetal_white.png^[transformR90",
@@ -120,7 +120,7 @@ minetest.register_node("mysheetmetal:soffit_cap_icorner", {
 	},
 })
 
-minetest.register_node("mysheetmetal:soffit_cap_ocorner", {
+core.register_node("mysheetmetal:soffit_cap_ocorner", {
 	description = "Soffit Cap Narrow Outside Corner",
 	inventory_image = "mysheetmetal_mach12.png",
 	tiles = {

@@ -3,7 +3,7 @@ local shape = {}
 local make_ok = {}
 local anzahl = {}
 
-minetest.register_node("mysheetmetal:machine", {
+core.register_node("mysheetmetal:machine", {
 	description = "Eavestrough Machine",
 	tiles = {
 		"mysheetmetal_mach_top.png",
@@ -73,13 +73,13 @@ minetest.register_node("mysheetmetal:machine", {
 	},
 
 	after_place_node = function(pos, placer)
-	local meta = minetest.get_meta(pos);
+	local meta = core.get_meta(pos);
 			meta:set_string("owner",  (placer:get_player_name() or ""));
 			meta:set_string("infotext",  "Eavestrough Machine is empty (owned by " .. (placer:get_player_name() or "") .. ")");
 		end,
 
 can_dig = function(pos,player)
-	local meta = minetest.env:get_meta(pos);
+	local meta = core.env:get_meta(pos);
 	local inv = meta:get_inventory()
 	if not inv:is_empty("ingot") or
 	not inv:is_empty("ingot2") or
@@ -90,7 +90,7 @@ can_dig = function(pos,player)
 end,
 
 on_construct = function(pos)
-	local meta = minetest.get_meta(pos)
+	local meta = core.get_meta(pos)
 	meta:set_string("formspec", "invsize[10,11;]"..
 		"background[-0.15,-0.25;10.40,11.75;mysheetmetal_background.png]"..
 		"label[3,5;Steel Ingot:]"..
@@ -128,7 +128,7 @@ on_construct = function(pos)
 end,
 
 on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.get_meta(pos)
+	local meta = core.get_meta(pos)
 	local inv = meta:get_inventory()
 
 if fields["et"] 
@@ -289,7 +289,7 @@ then
 			for i = 0, anzahl-1 do
 				give[i+1]=inv:add_item("res",shape)
 			end
-			if not minetest.settings:get_bool("creative_mode") then
+			if not core.settings:get_bool("creative_mode") then
 				ingotstack:take_item()
 				ingotstack2:take_item()
 			end
@@ -304,7 +304,7 @@ end
 
 --Craft
 
-minetest.register_craft({
+core.register_craft({
 		output = 'mysheetmetal:machine',
 		recipe = {
 			{'default:iron_lump', '', 'default:iron_lump'},
