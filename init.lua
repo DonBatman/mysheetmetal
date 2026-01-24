@@ -7,7 +7,11 @@ dofile(core.get_modpath("mysheetmetal").."/dripedge.lua")
 
 
 
-
+if core.get_modpath("lucky_block") then
+	lucky_block:add_blocks({
+		{"dro", {"mysheetmetal:machine"}, 1},
+	})
+end
 
 
 
